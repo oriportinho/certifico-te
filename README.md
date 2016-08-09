@@ -1,2 +1,2 @@
 # certifico-te
-programa feito para aula de laboratorio de engenharia de software
+programa feito para aula de laboratorio de projeto de sistemas.
