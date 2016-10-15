@@ -4,6 +4,11 @@
 	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
 		<style type="text/css">
+			#content {
+				margin: 0 auto;
+				overflow: hidden;
+				width: 100%;
+			}
 			h1 {
 				text-shadow: 2px 2px #000000;
 				font-size: 550%;
@@ -43,21 +48,23 @@
 	</head>
 	
 	<body>
-		<center>
-			<h1>Certifico-te</h1>
-			<form method="post">
-				<table>
-					<tr>
-						<td>Código:</td>
-						<td><input type="text" name="codigo" id="codigo" /></td>
-					</tr>
-					<tr><td></td><td></td></tr>
+		<div id="content">
+			<center>
+				<h1>Certifico-te</h1>
+					<form method="post">
+					<table>
+						<tr>
+							<td>Código:</td>
+							<td><input type="text" name="codigo" id="codigo" /></td>
+						</tr>
+						<tr><td></td><td></td></tr>
 					</table>
 					<div class="buttonsdiv">
 						<input class = "buttons" type="submit" value="Verificar Certificado" />
 						<input class = "buttons" type="button" value="Carregar Imagem" />
 					</div>
-			</form>
-		</center>
+				</form>
+			</center>
+		</div>
 	</body>
 </html>
