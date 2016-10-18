@@ -1,2 +1,9 @@
 apt update
-apt install apache2 mysql-server -y
+apt install apache2 mysql-server php7.0 libapache2-mod-php7.0 php7.0-mysql -y
+
+mkdir /var/www/html
+mkdir /var/www/html/cadastrar
+
+chmod -R 755 /var/www
+
+
