@@ -7,7 +7,7 @@ function create($curso) {
 }
 
 function retrieve($nome) {
-	$query = "SELECT * FROM Curso WHERE NomCur = '" . $nome . "';";
+	$query = "SELECT * FROM Curso WHERE DesCur = '" . $nome . "';";
 	if(!mysql_query($query)) echo "erro";
 }
 
