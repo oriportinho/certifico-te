@@ -6,9 +6,15 @@ function create($curso) {
 	if(!mysql_query($query)) echo "erro";
 }
 
-function retrieve() {}
+function retrieve($nome) {
+	$query = "SELECT * FROM Curso WHERE NomCur = '" . $nome . "';";
+	if(!mysql_query($query)) echo "erro";
+}
 
 function update() {}
 
-function delete() {}
+function delete($nome) {
+	$query = "DELETE FROM Curso WHERE NomCur = '" . $curso . "';";
+	if(!mysql_query($query)) echo "erro";
+}
 ?>
