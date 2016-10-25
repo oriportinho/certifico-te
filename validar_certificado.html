@@ -60,8 +60,11 @@
 						<tr><td></td><td></td></tr>
 					</table>
 					<div class="buttonsdiv">
+
+						<input id="fileInput" type="file" style="display:none;" accept="image/*"/>
+
 						<input class = "buttons" type="submit" value="Verificar Certificado" />
-						<input class = "buttons" type="button" value="Carregar Imagem" />
+						<input class = "buttons" type="button" value="Carregar Imagem" onclick="document.getElementById('fileInput').click();" />
 					</div>
 				</form>
 			</center>
