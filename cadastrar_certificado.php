@@ -32,6 +32,16 @@
 				color: white;
 				text-shadow: 2px 2px #000000;
 			}
+			textarea {
+				border-radius: 20px;
+    			border: 2px solid white;
+    			padding: 5px;
+    			width: 300px;
+    			font-family: 'Fredoka One', cursive;
+    			color: white;
+    			text-shadow: 2px 2px #000000;
+				margin: 5px
+			}
 			.buttons {
 				font-size: 125%;
 				background-color: transparent;
@@ -66,9 +76,10 @@
 							<td><input type="text" name="carga_horaria" id="carga_horaria" value="" /></td>
 						</tr>
 					</table>
+					<textarea name="participantes" id="participantes">Participantes...</textarea>
 					<div class="buttonsdiv">
 						<input class="buttons" type="submit" value="Cadastrar Certificado" />
-						<input class="buttons" type="button" value="Anexar Participantes" />
+						<input class="buttons" name="AnexPart" id="AnexPart" type="submit" value="Anexar Participantes" />
 					</div>
 				</form>
 			</center>
