@@ -33,7 +33,7 @@ ENGINE = InnoDB;
 -- Table `mydb`.`Curso`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Curso` (
-  `CodCur` INT NOT NULL,
+  `CodCur` INT NOT NULL AUTO_INCREMENT,
   `DesCur` VARCHAR(255) NOT NULL,
   `HorCur` INT NOT NULL,
   `NomPalCur` VARCHAR(45) NOT NULL,
