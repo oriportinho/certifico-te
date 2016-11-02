@@ -7,22 +7,47 @@ create($curso);
 header('Location: cadastrar_certificado.php');
 
 function create($curso) {
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	if ($conn->connect_error) {
+			die("Connection failed: " . $conn->connect_error);
+	}
+
 	$query = "INSERT INTO Curso(DesCur, HorCur, NomPalCur)" .
 			 "VALUES (" . $curso->descricao . ", " . $curso->horario . ", " . $curso->palestrante . ");";
-	
+
 	if(!mysql_query($query)) die("erro");
-	else 
+	else
+		$result = $conn->query($query);
+
+	$conn->close();
 }
 
 function retrieve($nome) {
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	if ($conn->connect_error) {
+			die("Connection failed: " . $conn->connect_error);
+	}
+
 	$query = "SELECT * FROM Curso WHERE DesCur = '" . $nome . "';";
 	if(!mysql_query($query)) die("erro");
+
+	$result = $conn->query($query);
+
+	$conn->close();
 }
 
 function update() {}
 
 function delete($nome) {
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	if ($conn->connect_error) {
+			die("Connection failed: " . $conn->connect_error);
+	}
+
 	$query = "DELETE FROM Curso WHERE NomCur = '" . $curso . "';";
 	if(!mysql_query($query)) die("erro");
+
+	$result = $conn->query($query);
+	$conn->close();
 }
 ?>

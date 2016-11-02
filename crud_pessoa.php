@@ -1,7 +1,11 @@
 <?php
 header('Location: cadastrar_certificado.php');
+$servername = "localhost";
+$username = "root";
+$password = "dedocalu";
+$dbname = "mydb";
 
-if(isset($_POST['AnexPart'])) {   
+if(isset($_POST['AnexPart'])) {
 	$participantes = $_POST['participantes'];
 	if(!empty($participantes)) {
 		$arrayParticipantes = preg_split("/[\r\n,]+/", $participantes, -1, PREG_SPLIT_NO_EMPTY);
@@ -19,26 +23,56 @@ if(isset($_POST['AnexPart'])) {
 }
 
 function create($pessoa) {
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	if ($conn->connect_error) {
+	    die("Connection failed: " . $conn->connect_error);
+	}
+
 	$query = "INSERT INTO Pessoa(CpfPes, NomPes, TelPes, EmaPes)" .
 			 "VALUES (" . $pessoa->cpf . ", " . $pessoa->nome . ", " . $pessoa->telefone . ", " . $pessoa->email . ");";
-	
+
 	if(!mysql_query($query)) die("erro");
-	else 
+	else
+		$result = $conn->query($query);
+	$conn->close();
 }
 
 function retrieve($nome) {
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	if ($conn->connect_error) {
+			die("Connection failed: " . $conn->connect_error);
+	}
+
+	$result = $conn->query($query);
+
 	$query = "SELECT * FROM Pessoa WHERE NomPes = '" . $nome . "';";
 	if(!mysql_query($query)) die("erro");
+	$conn->close();
 }
 
 function update($pessoa) {
-	$query = "UPDATE Pessoa SET CpfPes=" . $pessoa->cpf . ",NomPes=" . $pessoa->nome . ",TelPes=" . $pessoa->telefone . ",EmaPes=" . $pessoa->email; 	
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	if ($conn->connect_error) {
+			die("Connection failed: " . $conn->connect_error);
+	}
+
+	$query = "UPDATE Pessoa SET CpfPes=" . $pessoa->cpf . ",NomPes=" . $pessoa->nome . ",TelPes=" . $pessoa->telefone . ",EmaPes=" . $pessoa->email;
 	if(!mysql_query($query)) die("erro");
-	else 
+	else
+		$result = $conn->query($query);
+	$conn->close();
 }
 
 function delete($nome) {
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	if ($conn->connect_error) {
+			die("Connection failed: " . $conn->connect_error);
+	}
+
+	$result = $conn->query($query);
+
 	$query = "DELETE FROM Pessoa WHERE NomPes = '" . $nome . "';";
 	if(!mysql_query($query)) die("erro");
+	$conn->close();
 }
 ?>
