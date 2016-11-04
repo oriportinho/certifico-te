@@ -24,7 +24,7 @@
     			padding: 5px;
     			width: 160px;
     			font-family: 'Fredoka One', cursive;
-    			color: white;
+    			color: gray;
     			text-shadow: 2px 2px #000000;
 			}
 			table {
