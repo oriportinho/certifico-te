@@ -61,7 +61,7 @@
 			<center>
 				<h1>Certifico - te</h1>
 				<br>
-				<form method="post">
+				<form method="post" action="crud_cursos.php">
 					<table>
 						<tr>
 							<td>Nome do evento:</td>
