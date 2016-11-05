@@ -4,6 +4,9 @@ $curso['descricao'] = $_POST['nome_evento'];
 $curso['horario'] = $_POST['data_evento'];
 $curso['palestrante'] = $_POST['carga_horaria'];
 create($curso);
+$result = retrieve($_POST['nome_evento']);
+if(isset($result)) print_r($result);
+else die("Erro");
 header('Location: cadastrar_certificado.php');
 
 function create($curso) {
