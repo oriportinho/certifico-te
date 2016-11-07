@@ -1,4 +1,9 @@
 <?php
+$servername = "localhost";
+$username = "root";
+$password = "dedocalu";
+$dbname = "mydb";
+
 $curso = array();
 $curso['descricao'] = $_POST['nome_evento'];
 $curso['horario'] = $_POST['data_evento'];
