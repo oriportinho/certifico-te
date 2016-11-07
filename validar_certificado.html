@@ -63,7 +63,11 @@
 
 						<input id="fileInput" type="file" style="display:none;" accept="image/*"/>
 
-						<input class = "buttons" type="submit" value="Verificar Certificado" />
+						<input class = "buttons" type="submit" value="Verificar Certificado" onclick="popup()" />
+						<script> function popup() {
+							alert ("Certificado Válido!");
+							}
+						</script>
 						<input class = "buttons" type="button" value="Carregar Imagem" onclick="document.getElementById('fileInput').click();" />
 					</div>
 				</form>
