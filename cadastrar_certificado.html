@@ -70,7 +70,11 @@
 
 						<input id="fileInput" type="file" style="display:none;" accept=".csv"/>
 
-						<input class="buttons" type="submit" value="Cadastrar Certificado" />
+						<input class="buttons" type="submit" value="Cadastrar Certificado" onclick="popup()" />
+						<script> function popup() {
+							alert ("Certificado cadastrado com sucesso!");
+							}
+						</script>
 						<input class="buttons" type="button" value="Anexar Participantes" onclick="document.getElementById('fileInput').click();" />			
 					</div>
 				</form>
