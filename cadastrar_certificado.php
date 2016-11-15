@@ -21,26 +21,14 @@
 			input {
 				border-radius: 20px;
     			border: 2px solid white;
-    			padding: 5px;
+    			padding: 5px; 
     			width: 160px;
     			font-family: 'Fredoka One', cursive;
-    			color: gray;
-    			text-shadow: 2px 2px #000000;
+    			color: white;
 			}
 			table {
 				font-family: 'Fredoka One', cursive;
 				color: white;
-				text-shadow: 2px 2px #000000;
-			}
-			textarea {
-				border-radius: 20px;
-    			border: 2px solid white;
-    			padding: 5px;
-    			width: 300px;
-    			font-family: 'Fredoka One', cursive;
-    			color: white;
-    			text-shadow: 2px 2px #000000;
-				margin: 5px
 			}
 			.buttons {
 				font-size: 125%;
@@ -61,7 +49,7 @@
 			<center>
 				<h1>Certifico - te</h1>
 				<br>
-				<form method="post" action="crud_curso.php">
+				<form method="post">
 					<table>
 						<tr>
 							<td>Nome do evento:</td>
@@ -76,10 +64,16 @@
 							<td><input type="text" name="carga_horaria" id="carga_horaria" value="" /></td>
 						</tr>
 					</table>
-					<textarea name="participantes" id="participantes">Participantes...</textarea>
 					<div class="buttonsdiv">
-						<input class="buttons" type="submit" value="Cadastrar Certificado" />
-						<input class="buttons" name="AnexPart" id="AnexPart" type="submit" value="Anexar Participantes" />
+
+						<input id="fileInput" type="file" style="display:none;" accept=".csv"/>
+
+						<input class="buttons" type="submit" value="Cadastrar Certificado" onclick="popup()" />
+						<script> function popup() {
+							alert ("Certificado cadastrado com sucesso!");
+							}
+						</script>
+						<input class="buttons" type="button" value="Anexar Participantes" onclick="document.getElementById('fileInput').click();" />			
 					</div>
 				</form>
 			</center>
