@@ -1,33 +1,31 @@
 <?php
-$servername = "localhost";
+$servername = "127.0.0.1";
 $username = "root";
 $password = "dedocalu";
 $dbname = "mydb";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+if($conn->connect_error) die("Connection failed: " . $conn->connect_error);
 
 $curso = array();
 $curso['descricao'] = $_POST['nome_evento'];
 $curso['horario'] = $_POST['data_evento'];
 $curso['palestrante'] = $_POST['carga_horaria'];
-create($curso);
-$result = retrieve($_POST['nome_evento']);
-if(isset($result)) print_r($result);
-else die("Erro");
-header('Location: cadastrar_certificado.php');
+create($curso, $conn);
+header('Location: index.php');
 
-function create($curso) {
-	$conn = new mysqli($servername, $username, $password, $dbname);
-	if ($conn->connect_error) {
-			die("Connection failed: " . $conn->connect_error);
-	}
+function create($curso, $conn) {
+        //$conn = new mysqli($servername, $username, $password, $dbname);
+        if ($conn->connect_error) {
+                        die("Connection failed: " . $conn->connect_error);
+        }
 
-	$query = "INSERT INTO Curso(DesCur, HorCur, NomPalCur)" .
-			 "VALUES (" . $curso->descricao . ", " . $curso->horario . ", " . $curso->palestrante . ");";
+        $query = "INSERT INTO Curso(DesCur, HorCur, NomPalCur)" .
+                         "VALUES (" . $curso['descricao'] . ", " . $curso['horario'] . ", " . $curso['palestrante'] . ");";
 
-	if(!mysql_query($query)) die("erro");
-	else
-		$result = $conn->query($query);
-
-	$conn->close();
+        if(!mysqli_query($query)) die("erro");
+	
+        $conn->close();
 }
 
 function retrieve($nome) {
