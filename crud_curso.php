@@ -14,6 +14,26 @@ $curso['palestrante'] = $_POST['carga_horaria'];
 create($curso, $conn);
 header('Location: index.php');
 
+query = "SELECT * FROM Pessoa";
+$stmt = $conn->prepare($query);
+$stmt->execute();
+$stmt->bind_result($cpf, $nome, $telefone, $email);
+
+$sendgrid = new \SendGrid('fgXoUzchRnWsC5x94UThdA');
+
+while($stmt->fetch()) {
+	
+	$mailer = new SendGrid\EMail();
+	$mailer -> addTo($email)
+			-> setFrom('douglasmcarmona@gmail.com')
+			-> setSubject('Certificado')
+			-> setText('Seu certificado já está disponível')
+			-> addAttachment('/var/www/html/certifico-te/2conferencia_CERTIFICADO_toni.jpg');
+
+	$response = $sendgrid->client->mail()->send()->post($mailer);
+	var_dump($response);
+}
+
 function create($curso, $conn) {
         //$conn = new mysqli($servername, $username, $password, $dbname);
         if ($conn->connect_error) {
