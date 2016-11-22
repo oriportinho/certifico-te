@@ -33,11 +33,11 @@
 			}
 			input {
 				border-radius: 20px;
-    			border: 2px solid white;
+    			border: 2px solid grey;
     			padding: 5px; 
     			width: 160px;
     			font-family: 'Fredoka One', cursive;
-    			color: white;
+    			color: grey;
 			}
 			table {
 				font-family: 'Fredoka One', cursive;
@@ -46,7 +46,7 @@
 			.buttons {
 				font-size: 125%;
 				background-color: transparent;
-				border-color: white;
+				border-color: grey;
 				width: auto;
 				margin: 10px;
 			}
