@@ -20,11 +20,11 @@
 			}
 			input {
 				border-radius: 20px;
-    			border: 2px solid white;
-    			padding: 5px; 
-    			width: 160px;
-    			font-family: 'Fredoka One', cursive;
-    			color: white;
+    				border: 2px solid white;
+    				padding: 5px; 
+    				width: 160px;
+    				font-family: 'Fredoka One', cursive;
+    				color: gray;
 			}
 			table {
 				font-family: 'Fredoka One', cursive;
