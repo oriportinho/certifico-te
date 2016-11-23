@@ -1,8 +1,11 @@
 <?php
+ini_set('display_errors', 'On');
+error_reporting(E_ALL);
+
 $servername = "127.0.0.1";
-$username = "root";
+$username = "certifico-te";
 $password = "dedocalu";
-$dbname = "mydb";
+$dbname = "certifico-te";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if($conn->connect_error) die("Connection failed: " . $conn->connect_error);

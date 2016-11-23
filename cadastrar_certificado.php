@@ -21,7 +21,7 @@
 			input {
 				border-radius: 20px;
     			border: 2px solid grey;
-    			padding: 5px; 
+    			padding: 5px;
     			width: 160px;
     			font-family: 'Fredoka One', cursive;
     			color: grey;
@@ -73,7 +73,7 @@
 							alert ("Certificado cadastrado com sucesso!");
 							}
 						</script>
-						<input class="buttons" type="button" value="Anexar Participantes" onclick="document.getElementById('fileInput').click();" />			
+						<input class="buttons" type="button" value="Anexar Participantes" onclick="document.getElementById('fileInput').click();" enctype="multipart/from-data"/>
 					</div>
 				</form>
 			</center>

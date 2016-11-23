@@ -1,9 +1,10 @@
 <?php
+ini_set('display_errors', 'On');
 header('Location: cadastrar_certificado.php');
-$servername = "localhost";
-$username = "root";
+$servername = "127.0.0.1";
+$username = "certifico-te";
 $password = "dedocalu";
-$dbname = "mydb";
+$dbname = "certifico-te";
 
 if(isset($_POST['AnexPart'])) {
 	$participantes = $_POST['participantes'];
