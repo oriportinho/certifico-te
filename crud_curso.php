@@ -15,9 +15,10 @@ $curso['descricao'] = $_POST['nome_evento'];
 $curso['horario'] = $_POST['data_evento'];
 $curso['palestrante'] = $_POST['carga_horaria'];
 create($curso, $conn);
+$conn->close();
 
 $file_dir = "uploads/";
-$target_file = $target_dir . basename($_FILES["fileToUpload"]);
+$target_file = $target_dir . basename($_FILES["fileInput"]["name"]);
 print_r($_FILES);
 
 // query = "SELECT * FROM Pessoa";
@@ -45,29 +46,37 @@ while($stmt->fetch()) {
 // header('Location: index.php');
 
 function create($curso, $conn) {
-        //$conn = new mysqli($servername, $username, $password, $dbname);
-        if ($conn->connect_error) {
-                        die("Connection failed: " . $conn->connect_error);
-        }
+  if($conn) die("erro");
 
-        $query = "INSERT INTO Curso(DesCur, HorCur, NomPalCur)" .
-                         "VALUES (" . $curso['descricao'] . ", " . $curso['horario'] . ", " . $curso['palestrante'] . ");";
+  else {
+    if($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+    }
 
-        if(!mysqli_query($query)) die("erro");
+      $query = "INSERT INTO Curso(DesCur, HorCur, NomPalCur)" .
+      "VALUES (" . $curso['descricao'] . ", " . $curso['horario'] . ", " . $curso['palestrante'] . ");";
 
-        $conn->close();
+    }
+  }
 }
 
 function retrieve($nome) {
 	$conn = new mysqli($servername, $username, $password, $dbname);
-	if ($conn->connect_error) {
-			die("Connection failed: " . $conn->connect_error);
-	}
 
-	$query = "SELECT * FROM Curso WHERE DesCur = '" . $nome . "';";
-	if(!mysql_query($query)) die("erro");
+  if($conn)
+    die("Connection failed: " . $conn->connect_error);
 
-	$result = $conn->query($query);
+  else {
+    if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+    }
+
+    $query = "SELECT * FROM Curso WHERE DesCur = '" . $nome . "';";
+    // if(!mysql_query($query)) die("erro");
+
+    $result = $conn->query($query);
+
+  }
 
 	$conn->close();
 }
@@ -81,7 +90,7 @@ function delete($nome) {
 	}
 
 	$query = "DELETE FROM Curso WHERE NomCur = '" . $curso . "';";
-	if(!mysql_query($query)) die("erro");
+	// if(!mysql_query($query)) die("erro");
 
 	$result = $conn->query($query);
 	$conn->close();
