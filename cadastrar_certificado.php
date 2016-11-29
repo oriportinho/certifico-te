@@ -49,7 +49,7 @@
 			<center>
 				<h1>Certifico - te</h1>
 				<br>
-				<form method="post" action="crud_curso.php">
+				<form method="post">
 					<table>
 						<tr>
 							<td>Nome do evento:</td>
@@ -66,14 +66,14 @@
 					</table>
 					<div class="buttonsdiv">
 
-						<input id="fileInput" name="fileInput" type="file" style="display:none;" accept=".csv"/>
+						<input id="fileInput" nome="fileInput" type="file" style="display:none;" accept=".csv"/>
 
 						<input class="buttons" type="submit" value="Cadastrar Certificado" onclick="popup()" />
 						<script> function popup() {
 							alert ("Certificado cadastrado com sucesso!");
 							}
 						</script>
-						<input class="buttons" type="button" value="Anexar Participantes" onclick="document.getElementById('fileInput').click();" enctype="multipart/from-data"/>
+						<input class="buttons" type="button" id="teste" nome="teste" value="Anexar Participantes" onclick="document.getElementById('fileInput').click();" />			
 					</div>
 				</form>
 			</center>
