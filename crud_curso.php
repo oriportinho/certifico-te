@@ -53,10 +53,9 @@ function create($curso, $conn) {
       die("Connection failed: " . $conn->connect_error);
     }
 
-      $query = "INSERT INTO Curso(DesCur, HorCur, NomPalCur)" .
-      "VALUES (" . $curso['descricao'] . ", " . $curso['horario'] . ", " . $curso['palestrante'] . ");";
+    $query = "INSERT INTO Curso(DesCur, HorCur, NomPalCur)" .
+    "VALUES (" . $curso['descricao'] . ", " . $curso['horario'] . ", " . $curso['palestrante'] . ");";
 
-    }
   }
 }
 
