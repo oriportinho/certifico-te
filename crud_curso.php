@@ -46,7 +46,7 @@ while($stmt->fetch()) {
 // header('Location: index.php');
 
 function create($curso, $conn) {
-  if($conn) die("erro");
+  if($conn) die("erro, linha 49");
 
   else {
     if($conn->connect_error) {
