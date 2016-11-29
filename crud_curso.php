@@ -3,7 +3,8 @@ ini_set('display_errors', 'On');
 error_reporting(E_ALL);
 
 $servername = "127.0.0.1";
-$username = "certifico-te";
+//$username = "certifico-te";
+$username = 'root';
 $password = "dedocalu";
 $dbname = "certifico-te";
 
