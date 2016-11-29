@@ -1,0 +1,69 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[landscape,left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{setspace}
+\usepackage{datatool}
+\usepackage{graphicx}
+\usepackage{eso-pic}
+
+\begin{document}
+
+%----------dicionar database----------
+\DTLloaddb{database}{database.csv}
+\DTLforeach{database}{
+  \cpf=cpf, \nome=nome, \telefone=telefone, \emailp=emailp, \palestrante=palestrante, 
+  \evento=evento, \datae=datae, \hora=hora, \codigoq=codigoq
+}{
+
+  %----------Colocar borda/fundo----------
+  \AddToShipoutPicture{
+    \centering
+    \includegraphics[width=297mm]{moldura.png}
+  }
+
+  %----------Adicionar a logo----------
+  \begin{figure}
+    \centering
+    \includegraphics[width=20cm]{logo.png}
+  \end{figure}
+
+  %----------Adicionar o titulo----------
+  \begin{center}
+    \centering
+    \bfseries
+    \resizebox{!}{1cm}{Certificado}
+  \end{center}
+
+
+  %----------Corpo do Certificado----------
+  \vspace{0.5cm}
+  \onehalfspacing
+  \noindent{
+    \bfseries Certificamos que {\nome}, inscrito no CPF \cpf, participou da palestra \textit{\evento}
+    ministrado por \palestrante, com duração de \hora.\codigoq
+    
+    \begin{flushright}
+      \noindent \datae
+    \end{flushright}
+    
+  }
+  \noindent
+
+  \begin{center}
+  \centering
+    Este certificado foi gerado automaticamente pela certifico-te.\\
+    Sua autenticidade pode ser verificada em nosso site www.certifico-te.com.br\\
+    Use o seguinte código: \codigoq
+  \end{center}
+  
+  \thispagestyle{empty}
+  \pagebreak
+
+}
+
+\pagebreak
+\end{document}

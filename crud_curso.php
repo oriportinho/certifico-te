@@ -60,6 +60,7 @@ function create($curso, $conn) {
 
     $query = "INSERT INTO Curso(DesCur, HorCur, NomPalCur)" .
     "VALUES (" . $curso['descricao'] . ", " . $curso['horario'] . ", " . $curso['palestrante'] . ");";
+    die("atualizou BD");
   }
 
   if (mysqli_multi_query($conn, $sql)) {
