@@ -17,7 +17,7 @@ $curso['palestrante'] = $_POST['carga_horaria'];
 create($curso, $conn);
 $conn->close();
 
-$file_dir = "uploads/";
+$target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["fileInput"]["name"]);
 print_r($_FILES);
 
@@ -46,17 +46,13 @@ while($stmt->fetch()) {
 // header('Location: index.php');
 
 function create($curso, $conn) {
-  if($conn) die("erro, linha 49");
-
-  else {
-    if($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-    }
-
-    $query = "INSERT INTO Curso(DesCur, HorCur, NomPalCur)" .
-    "VALUES (" . $curso['descricao'] . ", " . $curso['horario'] . ", " . $curso['palestrante'] . ");";
-
+  if($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
   }
+
+  $query = "INSERT INTO Curso(DesCur, HorCur, NomPalCur)" .
+  "VALUES (" . $curso['descricao'] . ", " . $curso['horario'] . ", " . $curso['palestrante'] . ");";
+
 }
 
 function retrieve($nome) {

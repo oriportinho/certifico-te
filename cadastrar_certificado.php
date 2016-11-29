@@ -66,7 +66,7 @@
 					</table>
 					<div class="buttonsdiv">
 
-						<input id="fileInput" type="file" style="display:none;" accept=".csv"/>
+						<input id="fileInput" name="fileInput" type="file" style="display:none;" accept=".csv"/>
 
 						<input class="buttons" type="submit" value="Cadastrar Certificado" onclick="popup()" />
 						<script> function popup() {
