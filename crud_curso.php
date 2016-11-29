@@ -7,15 +7,21 @@ $username = "certifico-te";
 $password = "dedocalu";
 $dbname = "certifico-te";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-if($conn->connect_error) die("Connection failed: " . $conn->connect_error);
+// $conn = new mysqli($servername, $username, $password, $dbname);
+// if($conn->connect_error) die("Connection failed: " . $conn->connect_error);
+
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 
 $curso = array();
 $curso['descricao'] = $_POST['nome_evento'];
 $curso['horario'] = $_POST['data_evento'];
 $curso['palestrante'] = $_POST['carga_horaria'];
 create($curso, $conn);
-$conn->close();
+mysqli_close($conn);
 
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["fileInput"]["name"]);
@@ -54,6 +60,12 @@ function create($curso, $conn) {
 
     $query = "INSERT INTO Curso(DesCur, HorCur, NomPalCur)" .
     "VALUES (" . $curso['descricao'] . ", " . $curso['horario'] . ", " . $curso['palestrante'] . ");";
+  }
+
+  if (mysqli_multi_query($conn, $sql)) {
+      echo "New records created successfully";
+  } else {
+      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
 }
 
