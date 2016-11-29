@@ -20,13 +20,15 @@ $conn->close();
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["fileInput"]["name"]);
 print_r($_FILES);
+echo("arquivo gravado em" . $_FILES);
+
 
 // query = "SELECT * FROM Pessoa";
 // $stmt = $conn->prepare($query);
 // $stmt->execute();
 // $stmt->bind_result($cpf, $nome, $telefone, $email);
 
-$sendgrid = new \SendGrid('fgXoUzchRnWsC5x94UThdA');
+//$sendgrid = new \SendGrid('fgXoUzchRnWsC5x94UThdA');
 
 /*
 while($stmt->fetch()) {
@@ -48,11 +50,11 @@ while($stmt->fetch()) {
 function create($curso, $conn) {
   if($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
+  }else {
+
+    $query = "INSERT INTO Curso(DesCur, HorCur, NomPalCur)" .
+    "VALUES (" . $curso['descricao'] . ", " . $curso['horario'] . ", " . $curso['palestrante'] . ");";
   }
-
-  $query = "INSERT INTO Curso(DesCur, HorCur, NomPalCur)" .
-  "VALUES (" . $curso['descricao'] . ", " . $curso['horario'] . ", " . $curso['palestrante'] . ");";
-
 }
 
 function retrieve($nome) {
